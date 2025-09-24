@@ -6,10 +6,14 @@ use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\CommandesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", [AccueilController::class,'index']);
+Route::get("/", [AccueilController::class,"index"]);
 
-Route::get("clients", [ClientsController::class,'index']);
+Route::get("clients", [ClientsController::class,"index"]);
 
-Route::get("produits", [ProduitsController::class,'index']);
+Route::get("produits", [ProduitsController::class,"index"]);
 
-Route::get("commandes", [CommandesController::class,'index']);
+Route::get("commandes", [CommandesController::class,"index"]);
+
+Route::post("clients", [ClientsController::class, "add_client"]);
+
+Route::post("clients/delete/{id}", [ClientsController::class, "delete_client"]);

@@ -1,19 +1,15 @@
 <?php
 
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\ProduitsController;
+use App\Http\Controllers\CommandesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function () {
-    return view("accueil");
-});
+Route::get("/", [AccueilController::class,'index']);
 
-Route::get("clients", function () {
-    return view("clients");
-});
+Route::get("clients", [ClientsController::class,'index']);
 
-Route::get("produits", function () {
-    return view("produits");
-});
+Route::get("produits", [ProduitsController::class,'index']);
 
-Route::get("commandes", function () {
-    return view("commandes");
-});
+Route::get("commandes", [CommandesController::class,'index']);

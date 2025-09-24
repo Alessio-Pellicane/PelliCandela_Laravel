@@ -12,9 +12,9 @@
     @include('partials/header')
 
     <main>
-        <p>Page client</p>
+        <p>Page clients</p>
     </main>
-    
+
     @include("partials/footer")
 </body>
 

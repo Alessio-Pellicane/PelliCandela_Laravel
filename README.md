@@ -1,61 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Projet Web de Gestion de Commandes (Usage Personnel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ce projet est une application web développée avec **Laravel** pour gérer les commandes passées par mes clients.  
+Contrairement à un site e-commerce, l’application est **réservée à un usage interne** : c’est moi qui enregistre les commandes dans le système, et non les clients directement.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎯 Objectif du projet
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Centraliser et organiser les informations sur mes **clients**.  
+- Gérer un catalogue de **produits** (ex. bougies, fondants) avec leurs types et parfums.  
+- Encoder les **commandes** passées par les clients.  
+- Suivre l’état de chaque commande (`en attente`, `payée`, `expédiée`, etc.).  
+- Conserver l’**historique des produits et des prix** au moment de la commande.  
+- Pouvoir appliquer facilement des **remises** (par commande).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🗂️ Modèle de données
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Le schéma inclut les tables principales suivantes :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **CLIENTS** : informations personnelles des clients  
+- **COMMANDES** : informations liées aux commandes 
+- **PRODUITS** : catalogue des produits
+- **TYPES** : catégories de produits (bougie, fondant, etc.)  
+- **PARFUMS** : parfums disponibles pour les produits  
+- **CONCERNER** : table de liaison entre les commandes et les produits, qui enregistre pour chaque commande les produits associés, leur quantité et le prix appliqué au moment du passage de la commande (afin de conserver l’historique même si le prix du produit évolue par la suite).
+- **POSSEDER** : association entre produits et parfums  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+</br>
 
-## Laravel Sponsors
+![Diagramme de la DB](assets/db_diagram.gif)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Technologies utilisées
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Laravel 12.31.1** (framework PHP)  
+- **SQLite** (base de données légère, fichier unique)
+- **Eloquent ORM** (gestion des relations entre entités)  
+- **Blade** (moteur de template pour l'interface utilisateur)  
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Fonctionnalités prévues
 
-## Code of Conduct
+- Ajouter / modifier / supprimer des clients  
+- Encoder les commandes  
+- Ajouter des produits avec leur type, parfum, prix, statut (actif, rupture de stock)  
+- Suivre le statut des commandes  
+- Appliquer des **remises manuelles** sur une commande ou un produit  
+- Calculer automatiquement le **total d’une commande**  
+- Accéder à un tableau de bord simple pour visualiser l’activité (commandes, clients, chiffre d’affaires)  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 📌 Remarque
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+👉 Ce projet est développé **uniquement pour mon usage personnel** afin de simplifier la gestion de mes commandes clients.  
+Il n’est **pas destiné à un usage commercial** ni à être utilisé directement par les clients.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
